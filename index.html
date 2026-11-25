@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101d2b">
+<title>معرض أولاد وليم | نظام الإدارة</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+ <div class="brand"><div class="logo">و</div><div><b>أولاد وليم</b><small>نظام إدارة المعرض</small></div></div>
+ <nav>
+  <button class="nav active" data-page="dashboard">▦ <span>لوحة التحكم</span></button>
+  <button class="nav" data-page="products">▣ <span>المنتجات والمخزون</span></button>
+  <button class="nav" data-page="sales">▤ <span>المبيعات والفواتير</span></button>
+  <button class="nav" data-page="customers">♙ <span>العملاء</span></button>
+  <button class="nav" data-page="installments">◷ <span>الأقساط</span></button>
+  <button class="nav" data-page="employees">♧ <span>الموظفون</span></button>
+  <button class="nav" data-page="reports">▥ <span>التقارير</span></button>
+ </nav>
+ <div class="side-note">نسخة تجريبية<br><small>البيانات محفوظة على هذا الجهاز فقط</small></div>
+</aside>
+<div class="shade" id="shade"></div>
+<main class="main">
+ <header><button class="menu" id="menu">☰</button><div><small id="today"></small><h1 id="pageTitle">لوحة التحكم</h1></div><div class="user">مدير المعرض <span>م</span></div></header>
+ <section id="dashboard" class="page active">
+  <div class="welcome"><div><small>أهلاً بيك في نظام المعرض</small><h2>إدارة معرض أولاد وليم</h2><p>تابع مبيعاتك ومخزونك وأقساط عملائك من مكان واحد</p></div><div class="welcome-icon">▦</div></div>
+  <div class="stats">
+   <article><small>إجمالي المنتجات</small><b id="statProducts">0</b><span>منتج مسجل</span></article>
+   <article><small>إجمالي المبيعات</small><b id="statSales">0 ج</b><span>قيمة المبيعات المسجلة</span></article>
+   <article><small>المبالغ المتبقية</small><b id="statDue">0 ج</b><span>أقساط مستحقة</span></article>
+   <article><small>عدد العملاء</small><b id="statCustomers">0</b><span>عميل مسجل</span></article>
+  </div>
+  <div class="panel"><div class="panel-head"><div><h3>آخر المبيعات</h3><small>أحدث عمليات البيع المسجلة</small></div><button class="soft" data-go="sales">عرض المبيعات</button></div><div id="recentSales"></div></div>
+  <div class="notice"><b>تنبيه مهم</b><p>دي نسخة أولية للتجربة. لا تدخل بيانات عملاء حقيقية أو تعتمد عليها محاسبياً قبل ربطها بقاعدة بيانات آمنة وتفعيل حسابات الموظفين والنسخ الاحتياطي.</p></div>
+ </section>
+ <section id="products" class="page">
+  <div class="toolbar"><div><h2>المنتجات والمخزون</h2><p>سجل الأجهزة وتابع الكميات والأسعار</p></div><button class="primary" id="addProduct">＋ إضافة منتج</button></div>
+  <div class="panel"><input class="search" id="productSearch" placeholder="ابحث باسم المنتج أو الماركة"><div class="table-wrap"><table><thead><tr><th>المنتج</th><th>القسم</th><th>الماركة</th><th>سعر البيع</th><th>الكمية</th><th>إجراء</th></tr></thead><tbody id="productsBody"></tbody></table></div></div>
+ </section>
+ <section id="sales" class="page">
+  <div class="toolbar"><div><h2>المبيعات والفواتير</h2><p>سجل بيع نقدي أو بالتقسيط</p></div><button class="primary" id="addSale">＋ تسجيل بيع</button></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>رقم الفاتورة</th><th>العميل</th><th>التاريخ</th><th>طريقة البيع</th><th>الإجمالي</th><th>المتبقي</th></tr></thead><tbody id="salesBody"></tbody></table></div></div>
+ </section>
+ <section id="customers" class="page">
+  <div class="toolbar"><div><h2>العملاء</h2><p>بيانات العملاء وسجل تعاملاتهم</p></div><button class="primary" id="addCustomer">＋ إضافة عميل</button></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>الاسم</th><th>رقم الهاتف</th><th>العنوان</th><th>عدد الفواتير</th></tr></thead><tbody id="customersBody"></tbody></table></div></div>
+ </section>
+ <section id="installments" class="page">
+  <div class="toolbar"><div><h2>الأقساط</h2><p>تابع المبالغ المتبقية ومواعيد السداد</p></div></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>العميل</th><th>رقم الفاتورة</th><th>قيمة القسط</th><th>المتبقي</th><th>الإجراء</th></tr></thead><tbody id="installmentsBody"></tbody></table></div></div>
+ </section>
+ <section id="employees" class="page">
+  <div class="toolbar"><div><h2>الموظفون والصلاحيات</h2><p>تصور مبدئي لأدوار فريق المعرض</p></div><button class="primary" id="addEmployee">＋ إضافة موظف</button></div>
+  <div class="panel"><div class="role"><b>مدير المعرض</b><span>إدارة كاملة وإعدادات وتقارير</span></div><div class="role"><b>موظف مبيعات</b><span>العملاء وتسجيل المبيعات</span></div><div class="role"><b>مسؤول مخزون</b><span>المنتجات والكميات وتحديث المخزون</span></div><p class="muted">الأسماء هنا محلية للتجربة فقط ولا يوجد تسجيل دخول أو صلاحيات أمنية فعلية حتى الآن.</p><div id="employeesList"></div></div>
+ </section>
+ <section id="reports" class="page">
+  <div class="toolbar"><div><h2>التقارير</h2><p>ملخص سريع لحركة المعرض</p></div><button class="soft" id="exportCsv">تنزيل تقرير المنتجات CSV</button></div>
+  <div class="stats"><article><small>قيمة المخزون بسعر البيع</small><b id="stockValue">0 ج</b></article><article><small>عدد عمليات البيع</small><b id="salesCount">0</b></article></div>
+  <div class="panel"><h3>ملخص البيانات</h3><p id="reportSummary" class="muted"></p></div>
+ </section>
+</main>
+<dialog id="modal"><form method="dialog" id="modalForm"><div class="modal-head"><h3 id="modalTitle">إضافة</h3><button class="x" value="cancel">×</button></div><div id="modalFields"></div><div class="modal-actions"><button class="soft" value="cancel">إلغاء</button><button class="primary" id="saveModal" value="default">حفظ</button></div></form></dialog>
+<div class="toast" id="toast"></div><script src="script.js"></script>
+</body></html>
